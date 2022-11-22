@@ -2,11 +2,13 @@
 # которая объединяет все числа из диапазона в 
 # строку и возвращает получившуюся строку:
 
-def join_numbers_from_range(num_start, num_finish):
-  i = 0
-  result = ""
+def join_numbers_from_range(start,finish):
+    result = ''
+    i = start
+    while i <= finish:
+      result = result + str(i)
+      i += 1
+    return result
 
-  while i <= num_finish:
+print(join_numbers_from_range(5, 10))
 
-    result += i
-    
