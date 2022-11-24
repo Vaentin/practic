@@ -179,3 +179,28 @@ def join_numbers_from_range(start,finish):
     return result
 
 print(join_numbers_from_range(5, 10))
+
+#lesson 33
+#Реализуйте функцию my_substr(), которая извлекает из строки подстроку указанной длины.
+#Она принимает на вход два аргумента (строку и длину) и возвращает подстроку, начиная с первого символа:
+#мое решение 
+def my_substr(string, index_string):  
+  sub_string = ''
+  while len(sub_string) < index_string:
+    sub_string = string[:index_string]
+
+    return sub_string 
+#Ответ
+def my_substr(string, length):
+    result_string = ''
+    index = 0
+    while index < length:
+        result_string = result_string + string[index]
+        index = index + 1
+
+    return result_string
+    
+string = 'If I look back I am lost'
+print(my_substr(string, 1))  # => 'I'
+print(my_substr(string, 7))  # => 'If I lo'
+
