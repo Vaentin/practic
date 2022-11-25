@@ -4,15 +4,12 @@
 
 
 def my_substr(string, index_string):
-  
   sub_string = ''
-  while len(sub_string) < index_string:
-    sub_string = string[:index_string]
-
-  
-    return sub_string 
-
-
+  index = 0
+  while index < index_string:
+    sub_string += string[index]
+    index += 1
+  return sub_string
   
   
 
