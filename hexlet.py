@@ -183,13 +183,22 @@ print(join_numbers_from_range(5, 10))
 #lesson 33
 #Реализуйте функцию my_substr(), которая извлекает из строки подстроку указанной длины.
 #Она принимает на вход два аргумента (строку и длину) и возвращает подстроку, начиная с первого символа:
-#мое решение полная хрень где не работает while можно его закоментить
+#мое решение полная (хрень где не работает while можно его закоментить)
 def my_substr(string, index_string):  
   sub_string = ''
   while len(sub_string) < index_string:
     sub_string = string[:index_string]
 
     return sub_string 
+#попытка 2
+def my_substr(string, index_string):
+  sub_string = ''
+  index = 0
+  while index < index_string:
+    sub_string += string[index]
+    index += 1
+  return sub_string
+  
 #Ответ
 def my_substr(string, length):
     result_string = ''
@@ -204,3 +213,60 @@ string = 'If I look back I am lost'
 print(my_substr(string, 1))  # => 'I'
 print(my_substr(string, 7))  # => 'If I lo'
 
+
+#lesson 34
+# Реализуйте функцию is_contains_char(),
+# которая проверяет, содержит ли строка указанную букву.
+# Регистр букв не важен. Функция принимает два параметра:
+
+def is_contains_char(text, letter):
+  index = 0
+  words = text.lower()
+  char = letter.lower()
+  while index < len(text):
+    if words[index] == char:
+      return True
+    index += 1   
+  return False
+
+print(is_contains_char('Hexlet', 'H'))  # => True
+print(is_contains_char('Hexlet', 'h'))  # => True
+print(is_contains_char('Awesomeness', 'd'))  # => False
+# Ответ:
+def is_contains_char(string, char):
+    index = 0
+    while index < len(string):
+        if string[index].upper() == char.upper():
+            return True
+        index += 1
+    return False
+
+
+#lesson 35
+
+# Реализуйте функцию filter_string().
+# Она принимает на вход строку и символ и возвращает новую строку, 
+# в которой удалён переданный символ во всех его позициях.
+# Если строка не содержит указанный символ, то она возвращается без изменений.
+
+
+def filter_string(text, char):
+    result = ''
+    for current_char in text:
+      if current_char.upper() != char.upper():
+       result += current_char
+    return result.strip()
+
+text = '  If I look forward I win'
+print(filter_string(text, 'i'))  # 'f  look forward  wn'
+print(filter_string(text, 'O'))  # 'If I lk frward I win
+print(filter_string(text, ''))
+
+# Ответ
+def filter_string(text, char):
+    result = ''
+    lowered_char = char.lower()
+    for current_char in text:
+        if current_char.lower() != lowered_char:
+            result += current_char
+    return result.strip()

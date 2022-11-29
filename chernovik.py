@@ -1,19 +1,27 @@
-
-# Реализуйте функцию my_substr(), которая извлекает из строки подстроку указанной длины.
-# Она принимает на вход два аргумента (строку и длину) и возвращает подстроку, начиная с первого символа:
-
-
-def my_substr(string, index_string):
-  sub_string = ''
-  index = 0
-  while index < index_string:
-    sub_string += string[index]
-    index += 1
-  return sub_string
-  
-  
+# Реализуйте функцию filter_string().
+# Она принимает на вход строку и символ и возвращает новую строку, 
+# в которой удалён переданный символ во всех его позициях.
+# Если строка не содержит указанный символ, то она возвращается без изменений.
 
 
-string = 'If I look back I am lost'
-print(my_substr(string, 1))  # => 'I'
-print(my_substr(string, 7))  # => 'If I lo'
+def filter_string(text, char):
+    result = ''
+    for current_char in text:
+      if current_char.upper() != char.upper():
+       result += current_char
+    return result.strip()
+
+
+
+text = '  If I look forward I win'
+print(filter_string(text, 'i'))  # 'f  look forward  wn'
+print(filter_string(text, 'O'))  # 'If I lk frward I win
+print(filter_string(text, ''))
+
+
+# text = 'If I look forward I win'
+# filter_string(text, 'i')  # 'f  look forward  wn'
+# filter_string(text, 'O')  # 'If I lk frward I win
+
+
+
