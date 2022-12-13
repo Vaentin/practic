@@ -270,3 +270,63 @@ def filter_string(text, char):
         if current_char.lower() != lowered_char:
             result += current_char
     return result.strip()
+
+#lesson36
+
+# Реализуйте функцию is_palindrome(), которая принимает на вход слово,
+# определяет является ли оно палиндромом и возвращает логическое значение.
+
+
+def is_palindrome(text):
+    result = ''
+    for char in text:
+      result = char + result
+      
+    if result == text:
+        return True
+    return False
+print(is_palindrome('ass9sa'))
+
+# Ответ
+def is_palindrome(string):
+    pointer1 = 0
+    pointer2 = len(string) - 1
+    while pointer2 - pointer1 > 0:
+        if string[pointer1] != string[pointer2]:
+            return False
+        pointer1 += 1
+        pointer2 -= 1
+    return True
+
+
+# Alternative solution
+#  def is_palindrome(string):
+#      return string == string[::-1]
+
+#lesson37
+# Реализуйте функцию count_vowels(), которая принимает строку,
+# считает и возвращает количество гласных букв в ней.
+# Для проверки, является ли буква гласной,
+# импортируйте и используйте функцию is_vowel() из модуля symbols.py.
+
+from symbols import is_vowel
+
+
+def count_vowels(text):
+    result = 0
+    for char in text:
+        if is_vowel(char):
+            result += 1
+    return result
+
+    Директория src в файловом дереве содержит модуль kit.py. Изучите его.
+
+# Реализуйте функцию print_kit() и вызовите в ней все функции,
+# которые определены в модуле kit.py.
+# Предварительно импортируйте их.
+
+import kit
+def print_kit():
+    print(kit.show_language())
+    print(kit.say_hello())
+    print(kit.say_bye())

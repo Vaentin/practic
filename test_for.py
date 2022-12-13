@@ -6,7 +6,7 @@ for i in m:
         print('В строке есть буква t')
         count += 1
 
-    
+
     
 else:
     print('Цикл завершен, букв t' , count)
