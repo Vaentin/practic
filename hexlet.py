@@ -319,7 +319,7 @@ def count_vowels(text):
             result += 1
     return result
 
-    Директория src в файловом дереве содержит модуль kit.py. Изучите его.
+# Директория src в файловом дереве содержит модуль kit.py. Изучите его.
 
 # Реализуйте функцию print_kit() и вызовите в ней все функции,
 # которые определены в модуле kit.py.
@@ -330,3 +330,25 @@ def print_kit():
     print(kit.show_language())
     print(kit.say_hello())
     print(kit.say_bye())
+
+# Реализуйте функцию choice_from_range(),
+# которая принимает строку-набор и выбирает случайный символ по индексу из ограниченного диапазона.
+
+from random import randint
+
+def choice_from_range(text, start, finish):
+    index = randint(start, finish)
+    choice = text[index]
+    return(choice)
+
+#Реализуйте функцию sort_pair, которая принимает пару (кортеж из двух значений)
+#и возвращает пару, значения которой расположены строго в порядке возрастания.
+
+# обратите внимание на скобки у аргумента функции
+# sort_pair((5, 1)) == (1, 5)
+# sort_pair((2, 2)) == (2, 2)
+# sort_pair((7, 8)) == (7, 8)
+
+def sort_pair (cortej):
+    sort = tuple((sorted(cortej)))
+    return(sort)
