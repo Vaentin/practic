@@ -1,9 +1,8 @@
-print('a', 'b', 'c', sep='*')
-print('d', 'e', 'f', sep='**', end='')
-print('g', 'h', 'i', sep='+', end='%')
-print('j', 'k', 'l', sep='-', end='\n')
-print('m', 'n', 'o', sep='/', end='!')
-print('p', 'q', 'r', sep='1', end='%')
-print('s', 't', 'u', sep='&', end='\n')
-print('v', 'w', 'x', sep='%')
-print('y', 'z', sep='/', end='!')
+a, b, c = int(input()), int(input()), int(input())
+s1 = a + b + c
+s2 = a * b * c
+s3 = a + b * c
+s4 = (a + b) * c
+s5 = a * b + c
+s6 = a * (b + c)
+print(max(s1, s2, s3, s4, s5, s6))

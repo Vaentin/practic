@@ -1,2 +1,3 @@
-name = input()
-print('Привет, ', name, end = '!')
+num = int(input())
+
+
