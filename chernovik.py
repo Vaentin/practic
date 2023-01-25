@@ -1,3 +1,5 @@
-X, Y, Z = map(int,input().split())
-print(X * 3 + Y * 5 + Z * 12)
+i = 202
+while i != 2023:
+      i += 1
+print(f" Happy new {i} year")
 

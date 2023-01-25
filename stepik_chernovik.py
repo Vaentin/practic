@@ -1,8 +1,2 @@
-a, b, c = int(input()), int(input()), int(input())
-s1 = a + b + c
-s2 = a * b * c
-s3 = a + b * c
-s4 = (a + b) * c
-s5 = a * b + c
-s6 = a * (b + c)
-print(max(s1, s2, s3, s4, s5, s6))
+
+print(int(input()) % 2 == 0)
