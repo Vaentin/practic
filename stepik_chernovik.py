@@ -1,2 +1,3 @@
+print(len(input())!= 2)
 
-print(int(input()) % 2 == 0)
+print(9 < int(input()) < 100)
