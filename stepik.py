@@ -244,3 +244,39 @@ print(math.ceil((int(input()))/10))
 # Программа получает на вход положительное целое число N - количество человек в компании.
 import math
 print(math.ceil((int(input()))/4))
+
+#Выведите на экран одно целое число – минимальное количество банок краски, 
+# необходимых для покраски стен в офисе. Одной банки хватает на 16 м**2
+from math import ceil 
+L, W, H = map(int,input().split())
+print(ceil((L*H + W*H)*2 /16))
+
+# СТРОКИ
+
+a = 'Я стану крутым программистом!'
+print(a,a,a, sep = '\n')
+#или
+print("""Я стану крутым программистом!
+Я стану крутым программистом!
+Я стану крутым программистом!""")
+#777 букв W
+print("W"*777)
+
+# Принять две строчки и напечатать так же
+print(input(),input(), sep = '\n')
+# Поменять местами строчки
+a, b, c = input(),input(),input()
+print(c, b, a, sep = '\n')
+
+#Программа принимает на вход три символа через пробел в одну строку.
+#Необходимо вывести код каждого символа при помощи функции ord в определенном формате.
+a, b, c = map(str,input().split())
+print("Simvol code ", a, " is ", ord(a),'.', sep = '')
+print("Simvol code ", b, " is ", ord(b),'.', sep = '')
+print("Simvol code ", c, " is ", ord(c),'.', sep = '')
+
+#более верное решение используя конкатенацию (+)
+a,s,d=map(str,input().split())
+print('Simvol code',a,'is',str(ord(a))+'.')
+print('Simvol code',s,'is',str(ord(s))+'.')
+print('Simvol code',d,'is',str(ord(d))+'.')
