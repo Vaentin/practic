@@ -280,3 +280,29 @@ a,s,d=map(str,input().split())
 print('Simvol code',a,'is',str(ord(a))+'.')
 print('Simvol code',s,'is',str(ord(s))+'.')
 print('Simvol code',d,'is',str(ord(d))+'.')
+
+# ******** Методы строк ********
+print(input().upper())     # все заглавные
+print(input().lower())     # все строчные
+print(input().swapcase())  # все заглавные буквы преобразованы в строчные, строчные – в заглавные
+print(input().find('a'))   # индекс первой а
+print(input().rfind('a'))  # индекс первой а с конца
+print(input().replace(' ',',')) #пробел на запятую
+print(input().replace('w','').replace('z','')) # w и z на ничто) удалили из строки
+
+#сравни строки независимо от регистра
+s = input()
+word = input()
+print(s.upper() == word.upper())
+
+#первые последние 3 буквы заглавные в середине маленькие
+word = input()
+print(word.upper()[:3] + word.lower()[3:-3] + word.upper()[-3:])
+
+#удаляет все гласные буквы,
+#перед каждой согласной буквой ставит символ ".",
+#все прописные согласные буквы заменяет на строчные.
+s = input().lower()
+s = s.replace('a','').replace('o','').replace('y','').replace('e','').replace('u','').replace('i','')
+s ='.'.join(s)
+print('.'+ s)
