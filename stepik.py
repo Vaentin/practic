@@ -306,3 +306,16 @@ s = input().lower()
 s = s.replace('a','').replace('o','').replace('y','').replace('e','').replace('u','').replace('i','')
 s ='.'.join(s)
 print('.'+ s)
+
+# Сколько слов в строке (.split(sep=по умол пробел, maxsplit=-1))
+print(len(input().split()))
+
+# Напишите программу, которая проверяет, 
+# чтобы введенная фраза s одновременно начиналась со строки prefix и заканчивалась строкой postfix
+s = input()
+prefix = input()
+postfix = input()
+print(s.startswith(prefix) and s.endswith(postfix))
+
+print(input().ljust(15, '-'))
+print(input().rjust(10, '!'))
