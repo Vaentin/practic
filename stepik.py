@@ -317,5 +317,33 @@ prefix = input()
 postfix = input()
 print(s.startswith(prefix) and s.endswith(postfix))
 
-print(input().ljust(15, '-'))
-print(input().rjust(10, '!'))
+# Добавляет строку из одного знаечения 
+print(input().ljust(15, '-'))  #справа input----
+print(input().rjust(10, '!'))  #слева !!!!input
+print(input().center(15, '_')) #по бокам __center__
+print(input().zfill(10))       #нули 0000input
+
+# Убрать символы
+print(input().strip("-_!?"))   #убрать(изьять) все из символов -_!?
+print(input().lstrip("-_!?"))  #убрать слева
+print(input().rstrip("-_!?"))  #убрать справа
+
+# Переведите цифры в кодировку RGB
+R, G, B = int(input()),int(input()),int(input())
+R = hex(R).lstrip('0x').zfill(2).upper()
+G = hex(G).lstrip('0x').zfill(2).upper()
+B = hex(B).lstrip('0x').zfill(2).upper()
+print('#' + R + G + B)
+
+# Экранирование 
+print("  /~~~\\\n //^ ^\\\\\n(/(_*_)\)\n_/''*''\_\n(/_)^(_\)")
+#или
+print(r"""  /~~~\
+ //^ ^\\
+(/(_*_)\)
+_/''*''\_
+(/_)^(_\)""")
+
+#Формат строк
+print("Что Вы сказали? {word}? Какое интересное слово".format(word=input()))
+print("Здравствуйте,{1} {0}!".format(input(),input()))
