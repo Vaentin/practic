@@ -347,3 +347,58 @@ _/''*''\_
 #Формат строк
 print("Что Вы сказали? {word}? Какое интересное слово".format(word=input()))
 print("Здравствуйте,{1} {0}!".format(input(),input()))
+#
+number=int(input())
+n1 = number - 1
+n2 = number + 1
+print("""Для числа {number} предыдущим будет число {numb1}.
+Для числа {number} следующим будет число {numb2}.""".format(number=number, numb1=n1, numb2=n2))
+# F-строки
+print(f"Мое имя {input()}!")
+
+name = input()
+age = input()
+print(f"Hello {name.upper()}. You are {age} years old.")
+#или
+print(f"Hello {input().upper()}. You are {input()} years old.")
+
+print(f"{input()}, вам исполнится 77 лет в {int(input())+77}")
+
+'''Секунды в минуты'''
+sec = int(input())
+print(f"{sec} сек - это {sec//60} мин. {sec%60} сек.")
+#
+widh, height = map(int,input().split())
+print(f"""Разрешение экрана: {widh} x {height}.
+Общее количество пикселей = {widh*height}.""")
+# 
+price, many = float(input()), int(input())
+print(f"""Current dollar rate is {price}. You want to buy {many} dollars
+You must pay {price*many}""")
+# F - Строки
+"""Вывод переменных"""
+x, y = int(input()), int(input())
+print(f"Точка({x = }, {y = })") #Точка(x = 5, y = 9)
+"""Символы после запятой"""
+number_pi = 3.141592653589793
+print(f'{number_pi:.6f}') #3.141592
+print(f"{float(input()):.2f}") #input 1.1111111 print 1.11
+print(f"{int(input()):010d}")  #iput 1 print 000000001
+"""Выравнивание"""
+
+number = 12345.6789             #
+print(f"Число {number = }")     #Число number = 12345.6789
+print(f"|{number:=<25}|")       #|12345.6789===============|
+print(f"|{number:=>25}|")       #|===============12345.6789|
+print(f"|{number:=^25}|")       #|=======12345.6789========|
+print('-'*25)                   #-------------------------
+text = "Python 3.10"
+print(f"Строка {text = }")      #Строка text = 'Python 3.10'
+print(f"|{text:-<25}|")         #|Python 3.10--------------|
+print(f"|{text:!>25}|")         #|!!!!!!!!!!!!!!Python 3.10|
+print(f"|{text:?^25}|")         #|???????Python 3.10???????|
+#
+number = int(input())
+print(f"{number:-^15}")
+
+
