@@ -66,6 +66,15 @@ if a + b > c and a + c > b and b + c > a:
     print("YES")
 else:
     print("NO")
+# Треугольник
+a, b, c = int(input()), int(input()), int(input())
+if a == b == c:
+    print("Равносторонний")
+elif a != b != c and a != c != b: # a != b != c != a
+    print("Разносторонний")
+else:
+    print("Равнобедренный")
+
 
 # Высокосный год. Кратен 4 не кратен 100 или кратен 400
 y = int(input()) 
@@ -139,3 +148,88 @@ elif s == "/":
     print(a / b)
 else:
     print("Неверная операция")
+
+# цветовой микшер
+color_1, color_2 = input(), input()
+red = "красный"
+blue = "синий"
+yeallow = "желтый"
+orange = "оранжевый"
+green = "зеленый"
+violet = "фиолетовый"
+
+if color_1 == color_2 == red:
+    print(red)
+elif color_1 == color_2 == blue:
+    print(blue)
+elif color_1 == color_2 == yeallow:
+    print(yeallow)
+elif color_1 == blue and color_2 == red or color_1 == red and color_2 == blue:
+    print(violet)
+elif color_1 == red and color_2 == yeallow or color_1 == yeallow and color_2 == red:
+    print(orange)
+elif color_1 == yeallow and color_2 == blue or color_1 == blue and color_2 == yeallow:
+    print(green)
+else:
+    print("ошибка цвета")
+
+# Рулетка
+n = int(input())
+green = "зеленый"
+red = "красный"
+black = "черный"
+
+if n == 0:
+    print(green)
+elif 1 <= n <= 10:
+    if  n % 2 == 0:
+        print(black)
+    else:
+        print(red)
+elif 11 <= n <= 18:
+    if  n % 2 == 0:
+        print(red)
+    else:
+        print(black)
+elif 19 <= n <= 28:
+    if  n % 2 == 0:
+        print(black)
+    else:
+        print(red)
+elif 29 <= n <= 36:
+    if  n % 2 == 0:
+        print(red)
+    else:
+        print(black)
+else:
+    print("ошибка ввода")
+
+# 2 вариант рулетки
+a = int(input())
+if 0<=a<37:
+  if (0<a<11 or 18<a<29) and a%2 or (10<a<19 or 28<a<37) and a%2==0:
+    print('красный')
+  elif a == 0:
+    print('зеленый')
+  else:
+    print('черный')
+else:
+  print('ошибка ввода')
+
+# Пересечение отрезков
+a1, b1, a2, b2 = int(input()), int(input()), int(input()), int(input())
+
+if  b1 < a2 or b2 < a1:
+    print("пустое множество")
+elif b1 == a2:
+    print(b1)
+elif a1 == b2:
+    print(a1)
+elif a1 <= a2 < b1 < b2:
+    print(a2, b1,)
+elif a2 <= a1 < b2 < b1:
+    print(a1, b2,)
+elif a1 < a2 <b2 <= b1:
+    print(a2, b2,)
+else:
+    print(a1, b1,)

@@ -1,15 +1,16 @@
-a, b = int(input()), int(input())
-s = input() 
-if s == "/" and b ==0:
-    print("На ноль делить нельзя!")
-elif  s == "+":
-    print(a + b)
-elif s == "-":
-    print(a - b)
-elif s == "*":
-    print(a * b)
-elif s == "/":
-    print(a / b)
+a1, b1, a2, b2 = int(input()), int(input()), int(input()), int(input())
+
+if  b1 < a2 or b2 < a1:
+    print("пустое множество")
+elif b1 == a2:
+    print(b1)
+elif a1 == b2:
+    print(a1)
+elif a1 <= a2 < b1 < b2:
+    print(a2, b1,)
+elif a2 <= a1 < b2 < b1:
+    print(a1, b2,)
+elif a1 < a2 <b2 <= b1:
+    print(a2, b2,)
 else:
-    print("Неверная операция")
-    
+    print(a1, b1,)
