@@ -233,3 +233,175 @@ elif a1 < a2 <b2 <= b1:
     print(a2, b2,)
 else:
     print(a1, b1,)
+# !!!!  ЭКЗАМЕН  !!!!
+
+# 1 Напишите программу, которая определяет, оканчивается ли год с данным номером на два нуля. Если год оканчивается, то выведите «YES», иначе выведите «NO».
+a = int(input())
+if a % 100 == 0:
+    print("YES")
+else:
+    print("NO")
+# 2 Заданы две клетки шахматной доски. Напишите программу, которая определяет имеют ли указанные клетки один цвет или нет. Если они покрашены в один цвет, то выведите слово «YES», а если в разные цвета — то «NO».
+x1, x2, y1, y2 = int(input()), int(input()), int(input()), int(input())
+if (x1 + x2 + y1 + y2) % 2 == 0:
+    print("YES")
+else:
+    print("NO")
+# 3 Напишите программу, которая считывает целое число и выводит соответствующую ему римскую цифру. Если число находится вне диапазона 1-10, то программа должна вывести текст «ошибка».
+num = int(input())
+if num == 1:
+    print("I")
+elif num == 2:
+    print("II")
+elif num == 3:
+    print("III")
+elif num == 4:
+    print("IV")
+elif num == 5:
+    print("V")
+elif num == 6:
+    print("VI")
+elif num == 7:
+    print("VII")
+elif num == 8:
+    print("VIII")
+elif num == 9:
+    print("IX")
+elif num == 10:
+    print("X")
+else:
+    print("ошибка")
+# Более интересное решение
+n = int(input())
+if not 0 < n < 11:
+    print('ошибка')
+elif n < 4:
+    print(n*'I')
+elif n == 4:
+    print('IV')
+elif n < 9:
+    print('V' + (n-5)*'I')
+elif n < 11:
+    print((10-n)*'I' + 'X')
+# 4 
+# если число нечётное, то вывести «YES»;
+# если число чётное в диапазоне от 2 до 5 (включительно), то вывести «NO»;
+# если число чётное в диапазоне от 6 до 20 (включительно), то вывести «YES»;
+# если число чётное и больше 20, то вывести «NO».
+num = int(input())
+if num % 2 != 0:
+    print("YES")
+else:
+    if 2 <= num <= 5:
+        print("NO")
+    elif 6 <= num <= 20:
+        print("YES")
+    else:
+        print("NO")
+   
+# 5 Ход Слона
+a, b, c, d = int(input()), int(input()), int(input()), int(input())
+if (a - b) == (c - d) or (a + b) == (c + d):
+    print('YES')
+else:
+    print('NO')
+# 6 Ход ГРЕБАННОГО Коня
+x1, y1, x2, y2 = int(input()), int(input()), int(input()), int(input())
+if ((x1 - x2 == 1 or x2 - x1 == 1) and (y1 - y2 == 2 or y2 - y1 == 2)):
+    print("YES")
+elif ((x1 - x2 == 2 or x2 - x1 == 2) and (y1- y2 == 1 or y2 - y1 == 1)):                                            
+    print("YES")
+else:
+    print("NO")
+# Решение с квадратом
+x1, y1, x2, y2 = int(input()), int(input()), int(input()), int(input())
+if (x1 - x2) ** 2 + (y1 - y2) ** 2 == 5:
+    print("YES")
+else:
+    print("NO")
+# Ход ферзя
+x1, y1, x2, y2 = int(input()), int(input()), int(input()), int(input())
+
+if (x1 == x2 and y1 != y2) or (x1 != x2 and y1 == y2) or (x1 - x2)**2 == (y1 -y2)**2:
+    print("YES")
+else:
+    print("NO")
+
+# Первое десятичное число
+print(int(float(input()) * 10) % 10)
+# Десятичные
+print(float(input())% 1)
+# Второе решение
+a=float(input())
+print(a-int(a))
+
+#Самое короткое и длииное название города
+town1, town2, town3 = input(), input(), input()
+minl = min(len(town1), len(town2), len(town3))
+maxl = max(len(town1), len(town2), len(town3))
+if minl == len(town1):
+    print(town1)
+elif minl == len(town2):
+    print(town2)
+else:
+    print(town3)
+if maxl == len(town1):
+    print(town1)
+elif maxl == len(town2):
+    print(town2)
+else:
+    print(town3)
+
+#    Оператор in  #
+s = input()
+if "синий" in s:
+    print("YES")
+else:
+    print("NO")
+
+# суббота ИЛИ воскресенье в строке
+s = input()
+if "суббота" in s:
+    print("YES")
+elif "воскресенье" in s:
+    print("YES")
+else:
+    print("NO")
+# Лучше решение
+s = input()
+if 'суббота' in s or 'воскресенье' in s:
+    print('YES')
+else:
+    print('NO')
+
+# Модуль math # import math или from math import *
+
+from math import sqrt #корень
+x1, y1, x2, y2 = float(input()), float(input()), float(input()), float(input())
+p = sqrt((x1 - x2)**2 + (y1 - y2)**2)
+print(p)
+
+from math import pi
+R = float(input())
+S = pi * R ** 2
+C = 2 * pi * R
+print(S, C, sep = "\n")
+
+# Пол и потолок
+import math
+x = float(input())
+print(math.ceil(x) + math.floor(x))
+# Правильный многоугольник
+from math import tan, pi
+n, a = float(input()), float(input())
+S = (n * (a**2)) / (4 * tan(pi / n))
+print(S)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+# ЦИКЛ for
+
+"""for название_переменной_цикла in range(количество повторений):
+    блок кода"""
+
+for i in range(10):
+    print("Python is awesome!")
