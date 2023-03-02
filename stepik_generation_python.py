@@ -405,3 +405,30 @@ print(S)
 
 for i in range(10):
     print("Python is awesome!")
+# Повторяй за мной 2
+name = input()
+for i in range(10):
+    print(i, name)
+
+#Квадрат числа
+n = int(input()) + 1 
+for i in range(n):
+    print("Квадрат числа " + str(i) + " равен " + str(i**2))
+#лучше
+n = int(input())
+for i in range(n + 1):
+    print("Квадрат числа ", i, " равен ", i**2)
+#Звездный треугольник
+n = int(input())
+for i in range(n):
+    print("*" * (n - i))
+
+# Популяция
+# На вход программе подается три натуральных числа m,p,n:
+# m: стартовое количество организмов;
+# p: среднесуточное увеличение в %;
+# n: количество дней для размножения.
+m, p, n = int(input()), int(input()), int(input())
+for i in range(n):
+    print(i + 1, (m * (p / 100 + 1) ** i))
+    
