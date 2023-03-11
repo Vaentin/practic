@@ -1,4 +1,7 @@
-m, p, n = int(input()), int(input()), int(input())
-for i in range(n):
-    print(i + 1, (m * (p / 100 + 1) ** i))
-    
+number = 0
+five = 0
+while 0 <= number <= 5:    
+    number = int(input())
+    if number == 5:
+        five += 1
+print(five)

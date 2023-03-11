@@ -1,5 +1,10 @@
-i = 202
-while i != 2023:
-      i += 1
-print(f" Happy new {i} year")
 
+def print_numbers(n):
+    count = 0
+    while count < n:
+        print(n - count)
+        count += 1
+print('finished!')
+
+
+            

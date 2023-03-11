@@ -431,4 +431,187 @@ for i in range(n):
 m, p, n = int(input()), int(input()), int(input())
 for i in range(n):
     print(i + 1, (m * (p / 100 + 1) ** i))
+
+# Range
+m, n = int(input()), int(input()),
+for i in range(m, n + 1):
+    print(i)
+
+#Последовательность чисел
+m, n = int(input()), int(input()),
+
+if m < n:
+    for i in range(m, n + 1):
+        print(i)
+elif m > n:
+    for i in range(m, n - 1, -1):
+        print(i)
+else:
+    print(m)
     
+#!!!!!!!!!!!Последовательность чисел!!!!!!!!!!
+# Даны два целых числа m и n (m>n).
+# Напишите программу, которая выводит все нечетные числа от m до n включительно в порядке убывания.
+# Не используя if
+m, n = int(input()), int(input()),
+for i in range(m % 2 + m - 1, n - 1, -2):
+    print(i)
+
+# число кратно 17;
+# число оканчивается на 9;
+# число кратно 3 и 5 одновременно.
+
+m, n = int(input()), int(input()),
+for i in range(m,n+1):
+    if i % 10 == 9 or i % 17 == 0 or i % 15 == 0:
+        print(i)
+#Таблица умножения
+n = int(input())
+for i in range(1, 11):
+    print(n, "x", i, "=", n * i)
+
+#На вход программе подаются два целых числа a и b (a≤b). 
+#Напишите программу, которая подсчитывает количество чисел в диапазоне от a до b включительно,
+# куб которых ОКАНЧИВАЕТСЯ на 4 4 или 9
+a, b = int(input()), int(input())
+counter = 0
+for i in range(a, b + 1):
+    if (i ** 3) % 10 == 9 or (i ** 3) % 10 == 4:
+        counter = counter + 1
+print(counter)
+
+# На вход программе подается натуральное число n, а затем n целых чисел, каждое на отдельной строке.
+# Напишите программу, которая подсчитывает сумму введенных чисел.
+num = int(input())
+count = 0
+sum = 0
+for i in range(0, num):
+   count = int(input())
+   sum = sum + count
+print(sum)
+#или
+s = 0
+for i in range(int(input())):
+  s += int(input())
+print(s)
+
+#Асимптотическое приближение
+from math import log
+n= int(input())
+num = 0
+for i in range(1, n):
+    num =  num + (1 / ( i  +  1))
+   
+print((1 + num) - log(n))
+
+# На вход программе подается натуральное число n.
+# Напишите программу, которая подсчитывает сумму тех чисел от 1 до n (включительно)
+# квадрат которых оканчивается на 2,5 или 8.
+n= int(input())
+count = 0
+for i in range(1, n + 1):
+    if (i ** 2) % 10 == 2 or (i ** 2) % 10 == 5 or (i ** 2) % 10  == 8:
+        count += i
+print(count)
+
+#Напишите программу, которая считывает 10 чисел и выводит произведение отличных от нуля чисел.
+
+result = 1
+for i in range(10):
+    num = int(input())
+    if num != 0:
+        result *= num
+print(result)
+
+#Сумма всех делителей
+n = int(input())
+result = 0
+for i in range(1, n + 1):
+    if (n / i) % 1 == 0.0:
+        result += i
+print(result)
+
+#Знакочередующаяся сумма
+n = int(input())
+count = (((-1)**(n+1))*(2*n+1)+1)/4
+print(int(count))
+#              !  Наибольшие числа  !
+n = int(input())
+num = 0
+count = 0
+count2 = 0
+for i in range(n):
+    num = int(input())         #5            4                3
+    if num > count:            #5 > 0        4 > 5 False      3 > 5 False
+        count2 = count         #count2 = 0   
+        count = num            #count = 5
+    elif num > count2 < count: #             4 > 0 < 5 True   3 > 4 < 5 False
+        count2 = num           #             count2 = 4
+print(count)
+print(count2)
+
+# Напишите программу,
+# которая считывает последовательность из 10 целых чисел и определяет является ли каждое из них четным или нет.
+count = 0
+for i in range(10):
+    num = int(input())
+    if num % 2 == 0:
+        count += 1
+if count == 10:
+    print('YES')
+else:
+    print('NO')
+
+#Более интересное
+flag = 'YES'
+for _ in range(10):
+    a = int(input())
+    if a % 2 != 0:
+        flag = 'NO'
+print(flag)
+
+#  !!! WHILE !!!
+# Концом последовательности является слово «КОНЕЦ» 
+text = input()
+while text != 'КОНЕЦ':
+    print(text)  
+    text = input()
+#Концом последовательности является слово «КОНЕЦ» или «конец»
+text = input()
+stop1 = 'КОНЕЦ' 
+stop2 = 'конец'
+while text != stop1 and text != stop2:
+    print(text)  
+    text = input()
+#Концом последовательности является одно из трех слов: «стоп», «хватит», «достаточно» (маленькими буквами, без кавычек). 
+#Напишите программу, которая выводит общее количество членов данной последовательности.
+text = input()
+count = 0
+while text != 'стоп' and text != 'хватит' and text != 'достаточно':
+    count += 1
+    text = input()
+print(count) 
+# Концом последовательности является любое число не делящееся на 7
+# А еще 0 надо тоже выводить
+number = int(input())
+while number % 7 == 0:
+    print(number)
+    number = int(input())
+
+#Концом последовательности является любое отрицательное число.
+#Напишите программу, которая выводит сумму всех членов данной последовательности.
+number = int(input())
+total = 0
+while number >= 0:
+    total += number
+    number = int(input())       
+print(total)
+
+#Количество пятерок
+number = 0
+five = 0
+while 0 <= number <= 5:    
+    number = int(input())
+    if number == 5:
+        five += 1
+print(five)
