@@ -1,7 +1,9 @@
-number = 0
-five = 0
-while 0 <= number <= 5:    
-    number = int(input())
-    if number == 5:
-        five += 1
-print(five)
+n = int(input())
+for i in range(n // 2 + 1):
+    for j in range(i + 1):
+        print('*', end='')
+    print()
+for i in range(n // 2, 0, -1):
+    for j in range(i):
+        print('*', end='')
+    print()

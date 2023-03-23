@@ -615,3 +615,220 @@ while 0 <= number <= 5:
     if number == 5:
         five += 1
 print(five)
+
+#В мире ведьмака существуют монеты с номиналами 1,5,10,25.
+#Напишите программу, которая определяет какое минимальное количество чеканных монет нужно заплатить ведьмаку.
+n = int(input())
+monet = 0
+while n >= 25:
+    monet += 1
+    n = n - 25
+while n >= 10:
+    monet += 1
+    n = n - 10
+while n >= 5:
+    monet += 1
+    n = n - 5
+while n >= 1:
+    monet += 1
+    n = n - 1
+print(monet)
+
+#Дано натуральное число.
+#Напишите программу, которая выводит его цифры в столбик в обратном порядке.
+num = int(input())
+while num > 0:
+    reslut = num % 10
+    num = num // 10
+    print(reslut)
+#Второй вариант
+num = int(input()) 
+while num != 0:
+    print(num % 10)    
+    num = num // 10
+
+#Обратный порядок
+num = int(input())
+result = 1
+while num > 0:
+    result = num % 10
+    num //= 10
+    print(result, end = "")
+#Более понятно
+num = int(input())
+newnum = 0
+
+while num != 0:
+    last_digit = num % 10
+    newnum = newnum*10 +last_digit
+    num = num // 10 
+
+print(newnum)
+
+#  Максимальная и Минимальная ЦИФРА в ЧИСЛЕ
+num = int(input())
+n = 0
+n_max = 0
+n_min = 9
+while num > 0:
+    n = num % 10
+    num //= 10
+    if n > n_max:
+         n_max = n
+    if n < n_min:
+         n_min = n
+print('Максимальная цифра равна', n_max)
+print('Минимальная цифра равна', n_min)
+
+# Все вместе
+sum_n = 0     # сумму его цифр;
+total_n = 0   # количество цифр в нем;
+total_nn = 1  # произведение его цифр;
+arph_n = 0    # среднее арифметическое его цифр;
+first_n = 0   # его первую цифру;
+sum_f_l_n = 0 # сумму его первой и последней цифры.
+n = 0         # цифра
+num = int(input())
+last_n = num % 10
+
+while num > 0:
+    n = num % 10
+    total_n += 1
+    sum_n += n
+    total_nn *= n
+    num //= 10
+    
+    if num > 0:
+        first_n = num
+arph_n = sum_n / total_n
+sum_f_l_n = first_n + last_n
+print(sum_n) 
+print(total_n) 
+print(total_nn) 
+print(arph_n)    
+print(first_n)
+print(sum_f_l_n)
+
+#Вторая цифра числа
+num = int(input())
+while num > 9:
+    second_num = num % 10
+    num //= 10
+print(second_num)
+
+# Дано натуральное число.
+# Напишите программу, которая определяет, состоит ли указанное число из одинаковых цифр.
+num = int(input())
+num1 = num
+flag = True
+n1 = 0
+n2 = 0
+while num != 0:
+    n2 = num % 10
+    
+    while num1 > 0:
+        n1 = num1
+        num1 //= 10
+    num //= 10
+    if n1 != n2:
+        flag = False
+
+if flag == True:
+    print('YES')
+else:
+    print('NO')
+
+# Второй вариант (Берем последнюю и сравниваем с предпоследней и так до первой)
+n = int(input())
+m = n % 10
+answer = 'YES'
+while n != 0:
+    if m != n % 10:
+        answer = 'NO'
+    n = n // 10
+print(answer)    
+
+# ! Упорядоченные цифры !
+num = int(input())
+result = 'YES'
+while num != 0:
+    last_num = num % 10
+    prelast = num % 100 // 10
+    if last_num > prelast and prelast != 0:
+        result = 'NO'
+    num //= 10
+print(result)
+
+# Наименьший делитель
+n = int(input())
+
+for i in range(2, n+1):
+    if n % i == 0:
+        break 
+print(i)
+
+#числа от 1 до n включительно за исключением:
+#чисел от 5 до 9 включительно;
+#чисел от 17 до 37 включительно;
+#чисел от 78 до 87 включительно.
+n = int(input())
+
+n = int(input())
+for i in range(1, n + 1):
+    if 5 <= i <= 9 or 17 <= i <= 37 or 78 <= i <= 87:
+        continue
+    print(i)
+#Вариант 2
+n = int(input())
+for i in range(1, n + 1):
+    if i in range(5, 10):
+        continue  
+    if i in range(17, 38):
+        continue        
+    if i in range(78, 88):
+        continue
+    print(i)
+# Первая ЦИФРА
+n = int(input())
+while n > 9:
+    n //= 10
+print(n)
+
+#Программа должна вывести таблицу размером n × 3 состоящую из данного числа
+n = int(input())
+for _ in range(n): 
+    for i in range(3):
+        print(n, end = ' ')
+    print()
+#Напишите программу, которая печатает таблицу размером n × 5,
+#где в i-ой строке указано число i (числа отделены одним пробелом).
+n = int(input())
+for i in range(1, n + 1): 
+    for _ in range(5):
+        print(i, end = ' ')
+    print()
+#Таблица сложения
+n = int(input())
+for i in range(1, n + 1):
+    for j in range(1,10):
+        print(i, '+', j, '=',  i + j)
+    print()
+
+#равнобедренный звездный треугольник с основанием, равным n в соответствии с примером
+n = int(input())
+for i in range(n // 2 + 1):
+    for j in range(i + 1):
+        print('*', end='')
+    print()
+for i in range(n // 2, 0, -1):
+    for j in range(i):
+        print('*', end='')
+    print()
+"""
+3
+
+*
+**
+*
+"""
+
