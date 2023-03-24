@@ -831,4 +831,37 @@ for i in range(n // 2, 0, -1):
 **
 *
 """
-
+#Цифровая пирамида
+n = int(input())
+for i in range(1, n + 1):
+    for j in range(i):
+        print(i, end = '')
+    print()
+#Решите уравнение в натуральных числах 28n + 30k + 31m = 365.
+# n <= 13 (365/28) Если k и n равны 0
+# k <= 12 (365/30)
+# m <= 11 (365/31)
+for n in range(1, 13):
+    for k in range(1, 12):
+        for m in range(1, 11):
+            if 28 * n + 30 * k + 31 * m == 365:
+                print(n, k, m)
+#Имеется 100 рублей.
+#Сколько быков, коров и телят можно купить на все эти деньги,
+# если плата за быка 10 рублей, 
+# за корову – 5 рублей, 
+# за теленка – 0.5 рубля 
+# и надо купить 100 голов скота?
+for b in range(100):
+    for k in range(100):
+        for t in range(100):
+            if (10 * b + 5 * k + 0.5 * t == 100) and (b + k + t == 100):
+                print(b, k, t) 
+#Пирамида из цифр
+n = int(input())
+count = 1
+for i in range(1, n + 1):
+    for j in range(i):
+        print(count, end = ' ')
+        count += 1
+    print()
