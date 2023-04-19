@@ -1,11 +1,11 @@
-n = int(input())
-count = 1
-for i in range(1, n + 1):
-    for j in range(i):
-        print(count, end = ' ')
-        count += 1
-    print()
-    
+lst = []
+for n in range(int(input())):
+    lst.append(input())
 
+lst_search = []
+for k in range(int(input())):
+    lst_search.append(input())
 
+print(lst, lst_search)
+result_search  = []
 

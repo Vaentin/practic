@@ -865,3 +865,690 @@ for i in range(1, n + 1):
         print(count, end = ' ')
         count += 1
     print()
+
+#Дано натуральное число n.
+#Напишите программу, которая печатает численный треугольник с высотой равной n,
+#в соответствии с примером:
+# 1
+# 121
+# 12321
+# 1234321
+# 123454321
+n = int(input())
+for i in range(1, n + 1):
+    for j in range(1, i + 1):
+        print(j, end = '')
+    for k in range(j, 1, -1):
+         print(k - 1, end = '')
+    print()
+# 7.9.3 
+#Программа должна вывести два числа на одной строке, разделенных пробелом:
+#число с максимальной суммой делителей и сумму его делителей.
+# Мое решение
+a, b = int(input()), int(input())
+sum_sep = 0
+max_sep = 0
+for i in range (a, b + 1):
+    total = 0
+    for j in range(1, i + 1):
+        if i % j == 0:
+            total += j
+        if total >=sum_sep and i >= max_sep:
+            sum_sep = total
+            max_sep = i
+print(max_sep, sum_sep)
+# Решение 2
+a, b = int(input()), int(input())
+counter = 0 # счетчик подсчета суммы делителей
+number = 1 # число которое будем выводить 
+summa = 0  # тут будет сумма делителей, которую надо будет вывести
+for i in range(a, b + 1):  # проверяем каждое число в [a;b]
+    counter = 0 # обнуляем счетчик для каждого i
+    for j in range(1, i + 1):  # берем по очереди каждый делитель числа от [1 до самого числа]
+        if i % j == 0:  # если число делится на j без остатка, значит j - делитель числа
+            counter += j  # создаем сумму делителей
+    if counter >= summa:  # если сумма делителей больше или равна, чем суммаа делителей предыдущего числа
+        summa = counter  # то counter теперь равно кол-ву делителей этого числа вместо кол-ва предыдущего
+        number = i  # число у которого делителей оказалось больше, теперь равно number
+print(number, summa) # в конце концов, выводим само число (у которого больше делителей) и сумму этих делителей
+
+#В каждой строке надо напечатать очередное число и столько символов «+», сколько делителей у этого числа.
+n = int(input())
+for i in range(1, n + 1):
+    plus = ''
+    for j in range(1, i + 1):
+        if i % j == 0:
+            plus += '+'
+    print(j, plus, sep = '')
+# Результат n = 5
+# 1+
+# 2++
+# 3++
+# 4+++
+# 5++
+
+#Программа должна вывести цифровой корень введенного числа
+#192: 1+9+2=12, 1+2=3
+n = int(input())
+sum_digit = 0
+last_digit = 0
+
+while n > 0:
+    last_digit = n % 10
+    n //= 10        
+    sum_digit += last_digit
+while sum_digit > 9:
+    last_digit = sum_digit % 10
+    sum_digit //= 10        
+    sum_digit += last_digit
+    
+print(sum_digit)
+
+#Сумма факториалов 
+n = int(input())
+factorial = 1
+sum_factorial = 0
+for i in range(1, n + 1):
+    factorial *= i
+    sum_factorial += factorial
+print(sum_factorial)
+
+#Программа должна вывести все простые числа от a до b включительно
+a, b = int(input()), int(input())
+
+for i in range(a, b + 1):
+    count = 0
+    for j in range(1, b + 1):        
+        if i % j == 0:
+            count +=1 
+    if count == 2:
+        print(i)
+#!!!!! ЭКЗАМЕН ЦИКЛЫ !!!!!
+
+# РЕВЬЮ КОДА
+
+#На обработку поступает натуральное число.
+#Нужно написать программу, которая выводит на экран сумму чётных цифр этого числа или 0, если чётных цифр в записи нет.
+#Программист торопился и написал программу неправильно.
+n = int(input())
+s = 0
+while n > 0:
+    if n % 2 == 0:
+        s += n % 10
+    n //= 10
+print(s)
+
+#На обработку поступает последовательность из 8 целых чисел. Известно, что вводимые числа по абсолютной величине не превышают 10**12
+#Нужно написать программу, которая выводит на экран количество делящихся нацело на 4 чисел в исходной последовательности и максимальное делящееся нацело на 4 число.
+#Если делящихся нацело на 4 чисел нет, требуется на экран вывести «NO». Программист торопился и написал программу неправильно.
+n = 8
+count = 0
+maximum = -10 ** 12 - 1
+for i in range(1, n + 1):
+    x = int(input())
+    if x % 4 == 0:
+        count += 1
+        if x > maximum:
+            maximum = x
+if count > 0:
+    print(count)
+    print(maximum)
+else:
+    print('NO')
+
+#На обработку поступает последовательность из 4 целых чисел.
+#Известно, что вводимые числа по абсолютной величине не превышают 10**8
+#Нужно написать программу, которая выводит на экран количество нечётных чисел в исходной последовательности и максимальное нечётное число.
+#Если нечётных чисел нет, требуется на экран вывести «NO». Программист торопился и написал программу неправильно.
+n = 4
+count = 0
+maximum = -10**8
+for i in range(1, n + 1):
+    x = int(input())
+    if x % 2 != 0:
+        count += 1
+        if x > maximum:
+            maximum = x
+            
+if count > 0:
+    print(count)
+    print(maximum)
+else:
+    print('NO')
+
+#Звездная рамка
+
+#На вход программе подается натуральное число n.
+#Напишите программу, которая печатает звездную рамку размерами n×19
+n = int(input())
+print('*' * 19)
+for i in range(n - 2):
+    print('*',' ' * 15,'*')
+print('*' * 19)
+
+# Все и сразу
+n = int(input())
+count_digit_3 = 0   # количество цифр 3 в нем;
+count_last_digit = 0    # сколько раз в нем встречается последняя цифра;
+last_digit = n % 10
+total_even = 0    # количество четных цифр;
+sum_5 = 0         # сумму его цифр, больших пяти;
+mult_7 = 1
+count_greater_than_7 = 0        # произведение цифр, больших семи (если цифр больших семи нет, то вывести 1, если такая цифра одна, то вывести ее);
+sum_digit_0_5 = 0 # сколько раз в нем встречается цифры 0 и 5 (всего суммарно)
+
+while n != 0:
+    digit = n % 10
+    
+    if digit == 3:
+        count_digit_3 += 1
+    if digit == last_digit and n != 0:
+        count_last_digit += 1
+    if digit % 2 == 0:
+        total_even += 1
+    if digit > 5:
+        sum_5 += digit
+    if digit > 7:
+        mult_7 *= digit
+        count_greater_than_7 += 1
+    if digit == 0 or digit == 5:
+        sum_digit_0_5 += 1
+    n //= 10
+print(count_digit_3)
+print(count_last_digit)
+print(total_even)
+print(sum_5)
+if count_greater_than_7 == 0:
+    print(1)
+elif count_greater_than_7 == 1:
+    print(mult_7)
+else:
+    print(mult_7)
+print(sum_digit_0_5)
+
+# 9 СТРОКОВЫЙ ТИП ДАННЫХ 
+# На вход программе подается одна строка.
+# Напишите программу, которая выводит элементы строки с индексами 0, 2, 4, ... в столбик
+s = input()
+for i in range(0, len(s), 2):
+    print(s[i])
+# Напишите программу, которая выводит в столбик элементы строки в обратном порядке.
+s = input()
+for i in range(len(s)):
+    print(s[i])
+# Напишите программу, которая считает сумму цифр данной строки.
+n = input()
+sum = 0
+for c in n:
+    sum += int(c)
+print(sum)
+
+# Цифра в строке 
+s = input()
+flag = True
+for c in s:
+    for i in range(10):
+        if c == str(i):
+            flag = False
+if flag == True:
+    print('Цифр нет')
+else:
+    print('Цифра')
+# Второе решение 
+s = input()
+flag = False
+for i in range(10):
+    if str(i) in s:
+        flag = True
+        break
+if flag == True:
+    print('Цифра')
+else:
+    print('Цифр нет')
+# Сколько раз встречаются символы в строке
+s = input()
+total_plus = 0
+total_star = 0
+
+for c in s:
+    if c == '+':
+        total_plus += 1
+    if c == '*':
+        total_star += 1
+print('Символ + встречается',total_plus, 'раз')
+print('Символ * встречается',total_star, 'раз')
+
+# Одинаковые соседи
+# Напишите программу, которая определяет сколько в ней одинаковых соседних символов.
+s = input()
+total = 0
+for i in range(len(s)-1):
+    if s[i] == s[i + 1]:
+        total += 1
+print(total)
+# Второй вариант
+s, count, = input(), 0
+n = 0
+for c in s:
+    if c == n:
+        count += 1
+    n = c
+print(count)
+
+# Гласные и согласные
+string = input().lower()
+glasnie = 'ауоыиэяюёе'
+soglasnie = 'бвгджзйклмнпрстфхцчшщ'
+total_glasnie = 0
+total_soglasnie = 0
+for c in string:
+    for g in glasnie:
+        if c == g:
+            total_glasnie += 1
+    for s in soglasnie:
+        if c == s:
+            total_soglasnie += 1
+print('Количество гласных букв равно', total_glasnie)
+print('Количество согласных букв равно', total_soglasnie)
+
+# Перевод десятичных сичел в двоичные
+decimal = int(input())
+binary = ""
+while decimal > 0:
+    binary = str(decimal % 2) + binary
+    decimal //= 2
+print(binary)
+# Палиндром
+s = input()
+if s == s[::-1]:
+    print('YES')
+else:
+    print('NO')
+#
+s = input()
+print(len(s))   #общее количество символов в строке
+print(s * 3)    #исходную строку повторенную 3 раза
+print(s[0])     #первый символ строки
+print(s[:3])    #первые три символа строки
+print(s[-3:])   #последние три символа строки
+print(s[::-1])  #строку в обратном порядке
+print(s[1:-1])  #строку с удаленным первым и последним символом
+print(s[2])      # третий символ этой строки;
+print(s[-2])     # предпоследний символ этой строки;
+print(s[:5])     # первые пять символов этой строки;
+print(s[:-2])    # всю строку, кроме последних двух символов;
+print(s[::2])    # все символы с четными индексами;
+print(s[1::2])    # все символы с нечетными индексами;
+print(s[::-1])    # все символы в обратном порядке;
+print(s[-1::-2])    # все символы строки через один в обратном порядке, начиная с последнего.
+
+# Напишите программу, которая разрежет ее на две равные части, переставит их местами и выведет на экран.
+from math import ceil
+s = input()
+print(s[ceil(len(s)/2):] + s[:ceil(len(s)/2)])
+
+# !!!  Методы строк  !!!
+# Программа должна вывести «YES» если имя и фамилия начинаются с заглавной буквы и «NO» в противном случае.
+s = input()
+if s == s.title():
+    print('YES')
+else:
+    print('NO')
+# Текст содержащий хорош, ХОРОШ, Хорош, хОРОШ и т.д. имеет хороший оттенок
+s = input().upper()
+x = 'ХОРОШ'
+if x in s:
+    print('YES')
+else:
+    print('NO')
+
+# Программа должна вывести количество буквенных символов в нижнем регистре.
+# БЕЗ ЦИФР
+s = input()
+count = 0
+for i in s:
+    if i == i.lower() and i not in '1234567890':
+        count += 1
+print(count)
+
+# Количество слов разделенных пробелом
+print(input().count(' ') + 1)
+# Программа должна вывести количество строк в которых содержится число 11 минимум 3 раза.
+n = int(input())
+count = 0
+for _ in range(n):
+    s = input()
+    if s.count('11') >= 3:
+        count += 1
+print(count)
+
+# Количество цифр в строке
+s = input()
+count = 0
+for i in s:
+    if i in "0123456789":
+        count += 1
+print(count)
+# Более интересный вариант с применением метода .count()
+n = input()
+count = 0
+for i in range(10):
+    count += n.count(str(i))
+print(count)
+# Программа должна вывести «YES» если введенная строка заканчивается подстрокой .com или .ru и «NO» в противном случае.
+s = input()
+if s.endswith('.com') or s.endswith('.ru'):
+    print('YES')
+else:
+    print('NO')
+# Самый частотный символ
+s = input()
+simbol = ''
+count = 0
+for i in s:
+   if s.count(i) >= count:
+        simbol = i
+        count = s.count(i)
+print(simbol)
+
+# На вход программе подается строка текста.
+# Если в этой строке буква «f» встречается только один раз, выведите её индекс. 
+# Если она встречается два и более раз, выведите индекс её первого и последнего вхождения на одной строке, разделенных символом пробела. 
+# Если буква «f» в данной строке не встречается, следует вывести «NO».
+s = input()
+count_f = s.count('f')
+
+if count_f == 1:
+    print(s.find('f'))
+elif count_f > 1:
+    print(s.find('f'), s.rfind('f'))
+else:
+    print('NO')
+# вариант 2
+s= input()
+if s.find('f') == -1:
+    print('NO')
+elif s.find('f') == s.rfind('f'):
+    print(s.find('f'))
+else:
+    print(s.find('f'),s.rfind('f'))
+
+# Напишите программу, которая удаляет из этой строки первое и последнее вхождение буквы «h», а также все символы, находящиеся между ними.
+s = input()
+print(s[:s.find('h')] + s[s.rfind('h') + 1:])
+
+# Метод format
+s = 'In {0}, someone paid {1} {2} for two pizzas.'
+year = 2010
+price = '10k'
+BTC = 'Bitcoin'
+print(s.format(year, price, BTC))
+# Вариант 2
+s = 'In {0}, someone paid {1} {2} for two pizzas.'.format('2010','10k','Bitcoin')
+print(s)
+# Метод f-строка
+year = 2010
+amount = '10K'
+currency = 'Bitcoin'
+
+print(f'In {year}, someone paid {amount} {currency} for two pizzas.')
+
+# Функции ord() и chr()
+
+# Символы в диапазоне
+a, b = int(input()), int(input())
+for c in range (a, b + 1):
+    print(chr(c), end = ' ')
+# Простой шифр
+s = input()
+for i in s:
+    print(ord(i), end = ' ')
+# !! Шифр Цезаря !!
+n = int(input())
+s = input()
+for i in s:
+    dec = ord(i) - n
+    if dec < 97:
+        dec += 26
+    print(chr(dec), end = '')
+# !!!! ЭКЗАМЕН  !!!!
+# Напишите программу, которая удаляет из нее все символы с индексами кратными 3, то есть символы с индексами 0, 3, 6, ...
+s = input()
+new_s = ""
+
+for i in range(len(s)):
+    if i % 3 != 0:
+        new_s += s[i]
+
+print(new_s)
+
+#Замена 1 на one
+s = input()
+print(s.replace('1', 'one'))
+
+# Напишите программу, которая выводит индекс второго вхождения буквы «f». 
+# Если буква «f» встречается только один раз, выведите число -1, а если не встречается ни разу, выведите число -2.
+s = input()
+count_f = s.count('f')
+
+if count_f == 1:
+    print(-1)
+elif count_f > 1:
+    print(s.find('f',s.find('f') + 1))
+else:
+    print(-2)
+
+# ПЕРЕВОРОТ
+# На вход программе подается строка текста в которой буква «h» встречается как минимум два раза.
+# Напишите программу, которая возвращает исходную строку и переворачивает последовательность символов, заключенную между первым и последним вхождением буквы «h»
+s = input()
+start = s[:s.find('h') + 1]
+centr = s[s.find('h') + 1: s.rfind('h')] 
+finish = s[s.rfind('h'):]
+print(start + centr[::-1] + finish )
+# Вариант 2
+s=input()
+a=int(s.find('h'))
+b=int(s.rfind('h'))
+print(s[:a]+s[b:a:-1]+s[b:])
+
+# !! ***СПИСКИ*** !!
+# Список чисел
+n = int(input())
+print(list(range(1, n + 1)))
+
+# Напишите программу, которая выводит список, состоящий из n букв английского алфавита ['a', 'b', 'c', ...] в нижнем регистре.
+n = int(input())
+a = ''
+for i in range(1, n + 1):
+    a += (chr(96 + i))
+print(list(a))
+
+# Дополните приведенный код, так чтобы он вывел сумму минимального и максимального элементов списка numbers.
+numbers = [12.5, 3.1415, 2.718, 9.8, 1.414, 1.1618, 1.324]
+
+print(sum([max(numbers), min(numbers)]))
+# Замена элемента списка
+rainbow = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
+rainbow[3] = 'Зеленый'
+rainbow[6] = 'Фиолетовый'
+print(rainbow)
+
+# Все сразу
+numbers = [2, 6, 3, 14, 10, 4, 11, 16, 12, 5, 4, 16, 1, 0, 8, 16, 10, 10, 8, 5, 1, 11, 10, 10, 12, 0, 0, 6, 14, 8, 2, 12, 14, 5, 6, 12, 1, 2, 10, 14, 9, 1, 15, 1, 2, 14, 16, 6, 7, 5]
+
+print(len(numbers))                 # Вывел длину списка;
+print(numbers[-1])                  # Вывел последний элемент списка;
+print(numbers[:: -1])               # Вывел список в обратном порядке (вспоминаем срезы);
+if 5 in numbers and 17 in numbers:  # Вывел YES если список содержит числа 5 и 17, и NO в противном случае;
+    print('YES')
+else:
+    print('NO')
+
+del numbers[0]                      # Вывел список с удаленным первым и последним элементами.
+del numbers[-1]                    
+print(numbers)       
+# Вариант 2
+numbers = [2, 6, 3, 14, 10, 4, 11, 16, 12, 5, 4, 16, 1, 0, 8, 16, 10, 10, 8, 5, 1, 11, 10, 10, 12, 0, 0, 6, 14, 8, 2, 12, 14, 5, 6, 12, 1, 2, 10, 14, 9, 1, 15, 1, 2, 14, 16, 6, 7, 5]
+ans = 'YES' if [5, 7] in numbers else 'NO'
+print(len(numbers), numbers[-1], numbers[::-1], ans, numbers[1:-1], sep='\n')
+# На вход программе подается натуральное число n, а затем n строк.
+# Напишите программу, которая создает из указанных строк список и выводит его.
+n = int(input())
+words = []
+for i in range(n):
+    words.append(input())
+print(words)
+# Напишите программу, выводящую следующий список:
+#['a', 'bb', 'ccc', 'dddd', 'eeeee', 'ffffff', ...]
+lst = list()
+for i in range(1, 27):
+    lst.append(chr(i + 96) * i)
+print(lst)
+# Список кубов
+n = int(input())
+lst = list()
+for i in range(n):
+    lst.append(int(input())**3)
+print(lst)
+# Список делителей
+n = int(input())
+lst = list()
+for i in range(1, n + 1):
+    if n % i == 0:
+        lst.append(i)
+print(lst)
+# ! Сумма двух !
+# На вход программе подается натуральное число n≥2, а затем n целых чисел.
+# Напишите программу, которая создает из указанных чисел список, состоящий из сумм соседних чисел (0 и 1, 1 и 2, 2 и3 и т.д.)
+n = int(input())
+lst = list()
+count = 0
+for _ in range(1, n + 1):
+    lst.append(int(input()))
+result = list()
+for i in range (n - 1):
+    result.append(lst[i] + lst[i + 1])
+print(result)
+
+# На вход программе подается натуральное число n, а затемv  целых чисел.
+# Напишите программу, которая создает из указанных чисел список, затем удаляет все элементы стоящие по нечетным индексам, а затем выводит полученный список.
+n = int(input())
+lst = []
+for i in range(n):
+    lst.append(int(input()))
+del lst[1::2]
+print(lst)
+
+# !! k-ая буква слова !!
+# На вход программе подается натуральное число n и n строк, а затем число k. !!
+# Напишите программу, которая выводит k-ую букву из введенных строк на одной строке без пробелов
+n = int(input())
+lst = []
+for _ in range(n):
+    lst.append(input())
+
+k = int(input())
+for i in lst:
+    if len(i) >= k:
+       print(i[k - 1], end = '' )
+
+# На вход программе подается натуральное число n, а затем n строк. 
+# Напишите программу, которая создает список из символов всех строк, а затем выводит его.
+lst = []
+for _ in range(int(input())):
+    lst.extend(input())
+print(lst) 
+
+# ! Вывод элементов списка!
+# сума квадратов элементов списка numbers
+numbers = [1, 78, 23, -65, 99, 9089, 34, -32, 0, -67, 1, 11, 111]
+lst = []
+for i in numbers:
+    lst.append(int(i) ** 2)
+print(sum(lst))
+
+#  Напишите программу, которая для каждого введенного числа x выводит значение функции f(x)=x**2 + 2x + 1, каждое на отдельной строке.
+lst = []
+for _ in range(int(input())):
+    lst.append(int(input()))
+print(*lst, sep='\n')
+print()
+for x in lst:
+    f = 0
+    f = (x**2) + (2 * x) + 1
+    print(f)
+# Результат
+#Sample Input 1:
+# 5
+# 1
+# 2
+# 3
+# 4
+# 5
+# Sample Output 1:
+# 1
+# 2
+# 3
+# 4
+# 5
+
+# 4
+# 9
+# 16
+# 25
+# 36
+
+# Напишите программу, которая удаляет наименьшее и наибольшее значение из указанных чисел, а затем выводит оставшиеся числа каждое на отдельной строке, не меняя их порядок.
+lst = []
+for _ in range(int(input())):
+    lst.append(int(input()))
+result_lst = []
+for i in lst:
+    if i != min(lst) and i != max(lst):
+        result_lst.append(i)
+print(*result_lst, sep = '\n')
+# Напишите программу, которая выводит только уникальные строки, в том же порядке, в котором они были введены.
+lst = []
+for _ in range(int(input())):
+    lst.append(input())
+result_lst = []
+for i in lst:
+    if i not in result_lst:
+        result_lst.append(i)
+print(*result_lst, sep = '/n')
+# Google search
+# На вход программе подается натуральное число n, затем n строк, затем еще одна строка — поисковый запрос. 
+# Напишите программу, которая выводит все введенные строки, в которых встречается поисковый запрос.
+lst = []
+for _ in range(int(input())):
+    lst.append(input())
+
+result_search  = []
+search = input().lower()
+for i in lst:
+    if search in i.lower():
+        result_search.append(i)
+print(*result_search, sep = '\n')
+
+# !!!! Google search 2 !!!!
+# На вход программе подается натуральное число n, затем n строк, затем число k — количество поисковых запросов, затем k строк — поисковые запросы. 
+# Напишите программу, которая выводит все введенные строки, в которых встречаются все поисковые запросы.
+lst = []
+for n in range(int(input())):
+    lst.append(input())
+
+lst_search = []
+for k in range(int(input())):
+    lst_search.append(input())
+
+result_search  = []
+
+for i in lst:
+    flag = True
+    for j in lst_search:
+        if j.lower() not in i.lower():
+            flag = False
+            break
+    if flag:
+        print(i)
