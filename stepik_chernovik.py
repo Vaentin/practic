@@ -1,11 +1,2 @@
-lst = []
-for n in range(int(input())):
-    lst.append(input())
-
-lst_search = []
-for k in range(int(input())):
-    lst_search.append(input())
-
-print(lst, lst_search)
-result_search  = []
+print(*[int(n) ** 2 for n in input().split() if (int(n) ** 2) % 10 != 4 and (int(n) ** 2) % 2 == 0 ])
 

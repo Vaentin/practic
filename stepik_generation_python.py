@@ -1552,3 +1552,189 @@ for i in lst:
             break
     if flag:
         print(i)
+
+# Negatives, Zeros and Positives
+lst = []
+for n in range(int(input())):
+    lst.append(int(input()))
+m_digit, p_digit, z_digit = list(), list(), list()
+
+for i in lst:
+    if i < 0:
+        m_digit.append(i)
+    elif i > 0:
+        p_digit.append(i)
+    else:
+        z_digit.append(i)
+print(*m_digit, *z_digit, *p_digit, sep = '\n')
+
+# Построчный вывод
+print(*input().split(), sep = '\n')
+
+# Инициалы
+s = input().split()
+for i in s:
+    print((i[0]), end = '.')
+
+# На вход программе подается одна строка с корректным именем файла в операционной системе Windows. 
+# Напишите программу, которая разбирает строку на части, разделенные символом "\". 
+# Каждую часть вывести в отдельной строке.
+s = input().split('\\')
+for i in s:
+    print(i)
+# Напишите программу, которая по заданным числам строит столбчатую диаграмму.
+s = input().split()
+for i in s:
+    print('+' * int(i))
+# Корректный ip-адрес
+s = input().split('.')
+flag = True
+for i in s:
+    if int(i) > 255:
+       flag = False
+       break
+if flag:
+    print('ДА')
+else:
+    print('НЕТ')
+# Второй вариант
+flag = 'ДА'
+for c in input().split('.'):
+    if int(c) > 255:
+        flag = 'НЕТ'
+print(flag)
+
+# Добавь разделитель
+s = input()
+j = input()
+print(j.join(s))
+# Второй вариант
+print(*list(input()), sep=input())
+
+# ! Количество совпадающих пар !
+# На вход программе подается строка текста, содержащая натуральные числа. 
+# Из данной строки формируется список чисел. Напишите программу, которая подсчитывает, 
+# сколько в полученном списке пар элементов, равных друг другу. Считается, что любые два элемента, 
+# равные друг другу образуют одну пару, которую необходимо посчитать.
+s = input().split()
+count = 0
+for i in range(len(s)):
+    for j in range(i + 1, len(s)):
+        if s[i] == s[j]:
+            count += 1
+print(count)
+# Sample Input 1:
+# 1 7 5 7 5
+# Sample Output 1:
+# 2
+
+# МЕТОДЫ СПИСКОВ ЧАСТЬ 2
+# list.append(x)Добавляет элемент в конец списка
+# list.extend(L)Расширяет список list, добавляя в конец все элементы списка L
+# list.insert(i, x)Вставляет на i-ый элемент значение x
+# list.remove(x)Удаляет первый элемент в списке, имеющий значение x. ValueError, если такого элемента не существует
+# list.pop([i])Удаляет i-ый элемент и возвращает его. Если индекс не указан, удаляется последний элемент
+# list.index(x, [start [, end]])Возвращает положение первого элемента со значением x (при этом поиск ведется от start до end)
+# list.count(x)Возвращает количество элементов со значением x
+# list.sort([key=функция])Сортирует список на основе функции
+# list.reverse()Разворачивает список
+# list.copy()Поверхностная копия списка
+# list.clear()Очищает список
+numbers = [8, 9, 10, 11]
+
+numbers[1] = 17                # Заменил второй элемент списка на 17;
+numbers.extend([4, 5, 6])      # Добавил числа 4, 5 и 6 в конец списка;
+numbers.pop(0)                 # Удалил первый элемент списка;
+del numbers[0]                 
+numbers *= 2                   # Удвоил список;
+numbers.insert(3, 25)          # Вставил число 25 по индексу 3;
+print(numbers)                 # Вывел список, с помощью функции print()
+
+# Переставить min и max
+numbers = input().split()
+for i in range(len(numbers)):
+    numbers[i] = int(numbers[i])
+
+item_min = min(numbers)
+item_max = max(numbers)
+index_min = numbers.index(item_min)
+index_max = numbers.index(item_max)
+numbers.pop(index_min)
+numbers.insert(index_min, item_max)
+numbers.pop(index_max)
+numbers.insert(index_max, item_min)
+
+print(*numbers)
+
+# Количество артиклей в тексте
+words = input().lower().split()
+article = ['a', 'an', 'the']
+article_count = 0
+for i in article:
+    article_count += words.count(i)
+
+print('Общее количество артиклей:',article_count)
+# Вариант 2
+s = input().lower().split()
+print(f"Общее количество артиклей: {s.count('a') + s.count('an') + s.count('the')}")
+
+# !! Убрать комментарии из кода !!
+code_str = int((input())[1:])
+
+for i in range(code_str):
+    string = input()
+    if '#' in string:
+        print(string[:(string.index('#'))].rstrip())
+    else:
+        print(string)
+# Вариант 2 
+n = int(input()[1:]) 
+for _ in range(n):
+    s = input().split('#') # Разделитель списка '#' один что то там #два что то тут -> [один что то там , два что то тут ]
+    print(s[0].rstrip())   # Печатаем первый элемент списка [0] и удаляем пробелы справа -> один что то там
+
+# Сортировка чисел
+s = input().split()
+for i in range(len(s)):
+    s[i] = int(s[i])
+s.sort()
+print(*s)
+s.sort(reverse = True)
+print(*s)
+
+# Удаленный первый символ
+keywords = ['False', 'True', 'None', 'and', 'with', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'try', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'while', 'yield']
+
+new_keywords = [k[1:] for k in keywords]
+#список содержащий длины строк исходного списка.
+lengths = [len(k) for k in keywords]
+# список содержащий только слова длиной не менее пяти символов (включительно).
+new_keywords = [k for k in keywords if len(k) >= 5]
+
+# Палиндром от 100 до 1000
+palindromes = [i for i in range(100, 1000) if i % 10 == i // 100] # Если первое и третье числа равны
+
+# Список квадратов от 1 до n
+n = [i ** 2 for i in range(1, (int(input())) + 1)]
+print(*n, sep = "\n")
+
+# Список кубов из строки текста
+numbers = input().split()
+
+for i in range(len(numbers)):
+    numbers[i] = int(numbers[i])
+n = [j ** 3 for j in numbers]
+
+for _ in n:
+    print(_, end = ' ')
+# Вариант 2
+n = [int(i) ** 3 for i in input().split()]
+for i in n:
+    print(i, end = ' ')
+# Строка в столбик
+print(*[i for i in input().split()], sep = "\n")
+# или
+[print(s) for s in input().split()]
+
+# только цифры
+print(*[n for n in input() if n in '0123456789'], sep = '')
