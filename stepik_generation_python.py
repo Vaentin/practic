@@ -1738,3 +1738,205 @@ print(*[i for i in input().split()], sep = "\n")
 
 # только цифры
 print(*[n for n in input() if n in '0123456789'], sep = '')
+
+# Напишите программу, использующую списочное выражение, которая выведет квадраты четных чисел, которые не оканчиваются на цифру 4.
+print(*[int(n) ** 2 for n in input().split() if (int(n) ** 2) % 10 != 4 and (int(n) ** 2) % 2 == 0 ])
+
+#  Алгоритм пузырьковой сортировки
+a = [17, 24, 91, 96, 67, -27, 79, -71, -71, 58, 48, 88, 88, -16, -78, 96, -76, 56, 92, 1, 32, -17, 36, 88, -61, -97, -37, -84, 50, 47, 94, -6, 52, -76, 93, 14, -32, 98, -65, -16, -9, -68, -20, -40, -71, 93, -91, 44, 25, 79, 97, 0, -94, 7, -47, -96, -55, -58, -78, -78, -79, 75, 44, -56, -41, 38, 16, 70, 17, -17, -24, -83, -74, -73, 11, -26, 63, -75, -19, -13, -51, -74, 21, -8, 21, -68, -66, -84, -95, 78, 69, -29, 39, 38, -55, 7, -11, -26, -62, -84]
+
+n = len(a)
+
+for i in range(n - 1):
+    is_sorted = True  
+    for j in range(n - i - 1):
+        if a[j] > a[j + 1]:
+            a[j], a[j + 1] = a[j + 1], a[j]
+            is_sorted = False 
+    if is_sorted:
+        break 
+
+print(a)
+
+#  Алгоритм сортировки выбором
+a = [78, -32, 5, 39, 58, -5, -63, 57, 72, 9, 53, -1, 63, -97, -21, -94, -47, 57, -8, 60, -23, -72, -22, -79, 90, 96, -41, -71, -48, 84, 89, -96, 41, -16, 94, -60, -64, -39, 60, -14, -62, -19, -3, 32, 98, 14, 43, 3, -56, 71, -71, -67, 80, 27, 92, 92, -64, 0, -77, 2, -26, 41, 3, -31, 48, 39, 20, -30, 35, 32, -58, 2, 63, 64, 66, 62, 82, -62, 9, -52, 35, -61, 87, 78, 93, -42, 87, -72, -10, -36, 61, -16, 59, 59, 22, -24, -67, 76, -94, 59]
+
+n = len(a)
+for i in range(n):
+        # Мы предполагаем, что первый элемент несортированного сегмента является наименьшим
+        lowest_value_index = i
+        # Этот цикл перебирает несортированные элементы
+        for j in range(i + 1, n):
+            if a[j] < a[lowest_value_index]:
+                lowest_value_index = j
+        # Поменять местами значения самого низкого несортированного элемента с первым несортированным
+        a[i], a[lowest_value_index] = a[lowest_value_index], a[i]
+# реализация алгоритма сортировки выбором
+
+print(a)
+
+#   **Экзамен списки**
+# Список четных
+print([i for i in range(2, int(input()) + 1) if i % 2 == 0])
+
+# Сумма двух списков
+L = input().split()
+M = input().split()
+lst = []
+for i in range(len(L)):
+    lst.append(int(L[i]) + int(M[i]))
+print(*lst)
+# Второй вариант
+l, m = input().split(), input().split()
+print(*(int(l[i]) + int(m[i]) for i in range(len(l))))
+
+# Сумма чисел
+lst = input().split()
+print("+".join(lst),sum([int(i) for i in lst]), sep ='=')
+
+# !Валидный номер! 
+# abc-def-hijk или
+# 7-abc-def-hijk
+number = input().split('-')
+flag = True
+if len(number[0]) == 1 and number[0] == '7': 
+    number.remove('7')
+
+if len(number[0]) != 3 or len(number[1]) != 3 or len(number[2]) != 4:
+    flag = False    
+
+for i in number: 
+    for j in i:
+        if j not in '0123456789':
+            flag = False
+            break
+if flag:
+    print("YES")
+else:
+    print("NO")
+
+# Самый длинный
+n = (input().split())
+lst =[]
+for i in n:
+    lst.append(len(i))
+print(max(lst))
+# Вариант 2
+print(max([len(a) for a in input().split()]))
+
+# Молодежный жаргон
+print(*[i[1:] + i[0] + "ки"for i in input().split()])
+
+# !!!! Функции !!!!
+
+# Звездный прямоугольник 14 x 10
+
+def draw_box():
+    print("**********")
+    for i in range(12):
+        print("*        *")
+    print("**********")
+
+draw_box()
+
+# Звездный треуголник
+def draw_triangle():
+    for i in range(1, 11):
+        print("*" * i)
+draw_triangle()
+# Звездный треуголник 2
+# объявление функции
+def draw_triangle(fill, base):
+    for i in range(1, (base // 2) + 1):
+        print(fill * i)
+    for i in range((base // 2) + 1, 0, -1):
+        print(fill * i)
+
+# считываем данные
+fill = input()
+base = int(input())
+
+# вызываем функцию
+draw_triangle(fill, base)
+
+# ФИО
+# объявление функции
+def print_fio(name, surname, patronymic):
+    fio = surname[0] + name[0] + patronymic[0]
+    print(fio.upper())
+
+# считываем данные
+name, surname, patronymic = input(), input(), input()
+
+# вызываем функцию
+print_fio(name, surname, patronymic)
+
+# Сумма цифр
+# объявление функции
+def print_digit_sum(num):
+    sum = 0
+    for i in str(num):
+        sum += int(i)
+    print(sum)
+
+# считываем данные
+n = int(input())
+
+# вызываем функцию
+print_digit_sum(n)
+# Вариант 2
+def print_digit_sum(num):
+    print(sum([int(i) for i in num]))
+print_digit_sum(input())
+
+# километры в мили
+# объявление функции
+def convert_to_miles(km):
+    return km * 0.6214
+
+# считываем данные
+num = int(input())
+
+# вызываем функцию
+print(convert_to_miles(num))
+
+# дней в месяце
+# объявление функции
+def get_days(month):
+    if month == 2:
+        return 28
+    elif month in [4, 6, 9, 11]:
+        return 30
+    else:
+        return 31
+# считываем данные
+num = int(input())
+# вызываем функцию
+print(get_days(num))
+
+# Найти индексы всех символов в строке
+# объявление функции
+def find_all(target, symbol):
+    lst = []
+    for i in range(len(target)):
+        if target[i] == symbol:
+            lst.append(i)
+    return(lst)
+# считываем данные
+s = input()
+char = input()
+# вызываем функцию
+print(find_all(s, char))
+
+# Merge lists 1 Два списка
+# объявление функции
+def merge(list1, list2):
+    list1.extend(list2)
+    list1.sort()
+    return list1
+# считываем данные
+numbers1 = [int(c) for c in input().split()]
+numbers2 = [int(c) for c in input().split()]
+
+# вызываем функцию
+print(merge(numbers1, numbers2))
